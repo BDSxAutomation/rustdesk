@@ -239,6 +239,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                           contentPadding: EdgeInsets.only(top: 10, bottom: 10),
                         ),
                         style: TextStyle(
+                          fontFamily: 'JetBrainsMono',
                           fontSize: 22,
                         ),
                       ).workaroundFreezeLinuxMint(),
