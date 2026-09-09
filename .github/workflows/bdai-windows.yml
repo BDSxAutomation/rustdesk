@@ -83,6 +83,9 @@ jobs:
   build-for-windows-flutter:
     name: ${{ matrix.job.target }}
     needs: [build-RustDeskTempTopMostWindow, generate-bridge]
+    # Forks get a read-only GITHUB_TOKEN by default; the release step needs write.
+    permissions:
+      contents: write
     runs-on: ${{ matrix.job.os }}
     strategy:
       fail-fast: false
@@ -360,6 +363,13 @@ jobs:
         shell: bash
         run: |
           BASE_URL=${{ env.SIGN_BASE_URL }} SECRET_KEY=${{ secrets.SIGN_SECRET_KEY }} python3 res/job.py sign_files ./SignOutput
+
+      - name: Upload packaged installers
+        if: env.UPLOAD_ARTIFACT == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: BD-AI-installers-${{ matrix.job.arch }}
+          path: ./SignOutput
 
       - name: Publish Release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
