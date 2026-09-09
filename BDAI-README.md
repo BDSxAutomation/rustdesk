@@ -17,6 +17,7 @@ carries the one-line app-name change in the shared library.
 | Theme | Cobalt `#1B3FD6` brand accent, ink/paper surfaces, Hanken Grotesk UI face, JetBrains Mono for the device ID (`flutter/lib/common.dart`, `flutter/pubspec.yaml`). |
 | Windows metadata | `flutter/windows/runner/Runner.rc` — company, product, description, copyright. |
 | Build | `.github/workflows/bdai-windows.yml` builds the Windows x64 portable EXE and MSI on demand. Upstream's other workflows are removed from this branch. |
+| Default peers | `src/bdai.rs` seeds the recent-sessions list on first launch from the repo variable `BDAI_DEFAULT_PEERS` (`id|alias|platform|hostname;...`), injected at build time. IDs never live in the repo; no passwords are stored. |
 | Servers | Unchanged: uses RustDesk's public rendezvous/relay servers until a BDS-hosted `hbbs`/`hbbr` exists. |
 
 ## Licence

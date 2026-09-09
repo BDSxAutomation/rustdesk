@@ -192,6 +192,7 @@ pub fn core_main() -> Option<Vec<String>> {
         return None;
     }
     if args.is_empty() || crate::common::is_empty_uni_link(&args[0]) {
+        crate::bdai::seed_default_peers();
         #[cfg(target_os = "macos")]
         {
             crate::platform::macos::try_remove_temp_update_dir(None);
