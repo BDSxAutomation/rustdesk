@@ -605,12 +605,14 @@ class _DesktopHomePageState extends State<DesktopHomePage>
               0, marginTop, 0, bind.isIncomingOnly() ? marginTop : 0),
           child: Container(
               decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(color: Color(0xFFF4B43A), width: 2)),
                   gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
                 colors: [
-                  Color.fromARGB(255, 226, 66, 188),
-                  Color.fromARGB(255, 244, 114, 124),
+                  Color(0xFF17246B),
+                  Color(0xFF0A1128),
                 ],
               )),
               padding: EdgeInsets.all(20),
@@ -1045,12 +1047,12 @@ void setPasswordDialog({VoidCallback? notEmptyCallback}) async {
                           e.name,
                           style: TextStyle(
                               color: checked
-                                  ? const Color(0xFF0A9471)
-                                  : Color.fromARGB(255, 198, 86, 157)),
+                                  ? const Color(0xFF178A54)
+                                  : const Color(0xFFC93C3C)),
                         ),
                         backgroundColor: checked
-                            ? const Color(0xFFD0F7ED)
-                            : Color.fromARGB(255, 247, 205, 232));
+                            ? const Color(0xFFE3F4EB)
+                            : const Color(0xFFFBE9E9));
                   }).toList(),
                 ))
           ],
