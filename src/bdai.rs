@@ -4,7 +4,10 @@
 // from a repository variable, never committed): "id|alias|platform|hostname;id|alias|...".
 // Seeding runs once per list value, only creates entries that do not exist yet, and never
 // stores a password — staff still authenticate against the target's permanent password.
-use hbb_common::config::{LocalConfig, PeerConfig};
+use hbb_common::{
+    config::{LocalConfig, PeerConfig},
+    log,
+};
 
 const SEEDED_KEY: &str = "bdai-seeded-peers";
 
